@@ -1,0 +1,52 @@
+name: Request a plugin or skill
+description: Ask for something that would help you do your job in Claude.
+title: "[Request] "
+labels: ["plugin-request"]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks. Two minutes here saves us a meeting. Thumbs up on existing requests count as votes, so check the list first.
+  - type: input
+    id: unit
+    attributes:
+      label: Your unit
+      placeholder: OSP, ORIA, RAIS, a department...
+    validations:
+      required: true
+  - type: textarea
+    id: task
+    attributes:
+      label: What do you want Claude to help with?
+      description: Describe the task the way you would explain it to a new colleague. What do you start with, what should come out?
+      placeholder: "When a sponsor sends a revised agreement, I compare it to our last position and write up what changed..."
+    validations:
+      required: true
+  - type: textarea
+    id: today
+    attributes:
+      label: How do you do it today?
+      description: Tools, documents, templates, who else is involved.
+  - type: dropdown
+    id: frequency
+    attributes:
+      label: How often does this come up?
+      options:
+        - Daily
+        - Weekly
+        - Monthly
+        - A few times a year
+    validations:
+      required: true
+  - type: textarea
+    id: refs
+    attributes:
+      label: Reference material Claude would need
+      description: Policies, templates, examples. Links are fine. Do not paste anything confidential here; this repo is public.
+  - type: checkboxes
+    id: help
+    attributes:
+      label: Can you help build or test it?
+      options:
+        - label: I can test a draft
+        - label: I can write the instructions with RAIS
+        - label: My unit could maintain it

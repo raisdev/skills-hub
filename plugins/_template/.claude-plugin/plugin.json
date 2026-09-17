@@ -1,0 +1,8 @@
+{
+  "$schema": "https://code.claude.com/schemas/plugin.json",
+  "name": "unit-purpose",
+  "version": "0.1.0",
+  "description": "One or two sentences a user can act on. What it does, for whom.",
+  "author": { "name": "Cornell <unit>" },
+  "homepage": "https://github.com/raisdev/skills-hub"
+}

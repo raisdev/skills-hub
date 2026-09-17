@@ -1,0 +1,9 @@
+{
+  "$schema": "https://code.claude.com/schemas/plugin.json",
+  "name": "rais-ecfr",
+  "version": "0.1.0",
+  "description": "Electronic Code of Federal Regulations (eCFR) for research administration: search, retrieve, and compare federal regulations. Bundles the eCFR MCP connector plus an ecfr-guidance skill. R&I unit pack, RAIS-maintained.",
+  "author": "Cornell RAIS",
+  "homepage": "https://ai4ra.uidaho.edu/ai4ra-tip-of-the-week-4/",
+  "repository": "https://ai4ra.github.io/mcp-ecfr"
+}

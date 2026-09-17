@@ -1,0 +1,17 @@
+name: Share an idea
+description: A thought that is not a full request yet.
+title: "[Idea] "
+labels: ["idea"]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: The idea
+      placeholder: "What if Claude could..."
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it would matter
+      description: Who benefits, what it saves, what it prevents.

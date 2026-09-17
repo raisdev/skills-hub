@@ -1,0 +1,6 @@
+{
+  "ecfr": {
+    "type": "sse",
+    "url": "https://n8layman-ecfr-mcp-server.hf.space/gradio_api/mcp/sse"
+  }
+}

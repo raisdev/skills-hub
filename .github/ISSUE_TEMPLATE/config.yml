@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Catalog
+    url: https://raisdev.github.io/skills-hub
+    about: Browse published plugins, what is in development, and open requests.
+  - name: Something else
+    url: mailto:rais@cornell.edu
+    about: For anything that does not fit a form.

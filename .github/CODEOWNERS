@@ -1,0 +1,17 @@
+# Review requirements. Branch protection on main requires an approval from a
+# matching owner before merge. Later lines win for a given path.
+#
+# RAIS reviews everything by default.
+*                       @raisdev/rais-reviewers
+
+# The catalog and the automation stay with RAIS only.
+/.claude-plugin/        @raisdev/rais-reviewers
+/.github/               @raisdev/rais-reviewers
+/scripts/               @raisdev/rais-reviewers
+/site/                  @raisdev/rais-reviewers
+
+# Department folders. Add a line per unit once its GitHub team exists.
+# The unit's reviewers can approve their own plugins; RAIS still sees the PR.
+# /plugins/osp-*/       @raisdev/osp-reviewers @raisdev/rais-reviewers
+# /plugins/oria-*/      @raisdev/oria-reviewers @raisdev/rais-reviewers
+# /incubator/osp-*/     @raisdev/osp-reviewers

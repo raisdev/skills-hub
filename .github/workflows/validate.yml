@@ -1,0 +1,16 @@
+name: Validate hub
+on:
+  pull_request:
+  push:
+    branches: [main]
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+      - name: Check manifests, names, secrets, sizes
+        run: python3 scripts/validate.py
+      - name: Build the catalog (proves the site still renders)
+        run: python3 site/build.py

@@ -1,0 +1,22 @@
+{
+  "name": "rais-skills-hub",
+  "owner": {
+    "name": "Cornell RAIS (Research Administration Information Services)",
+    "email": "rais@cornell.edu"
+  },
+  "metadata": {
+    "description": "Cornell Research & Innovation Skills Hub. Plugins and skills for research administration, published by RAIS and R&I units.",
+    "version": "1.0.0"
+  },
+  "plugins": [
+    {
+      "name": "rais-ecfr",
+      "source": "./plugins/rais-ecfr",
+      "description": "Electronic Code of Federal Regulations (eCFR) for research administration: search, retrieve and compare 2 CFR 200, 45 CFR 46 and the rest, grounded in the live regulatory text.",
+      "version": "0.1.0",
+      "author": { "name": "Cornell RAIS" },
+      "category": "research-administration",
+      "tags": ["ecfr", "uniform-guidance", "regulations", "rais"]
+    }
+  ]
+}

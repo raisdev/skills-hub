@@ -1,0 +1,24 @@
+name: Report a problem
+description: A plugin from this hub is doing something wrong.
+title: "[Bug] "
+labels: ["bug"]
+body:
+  - type: input
+    id: plugin
+    attributes:
+      label: Plugin (and skill if you know it)
+      placeholder: rais-ecfr / ecfr-guidance
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened
+      description: What you asked, what Claude did, what you expected. Screenshots help. Remove anything confidential.
+    validations:
+      required: true
+  - type: input
+    id: version
+    attributes:
+      label: Claude Desktop version
+      description: Settings, About.

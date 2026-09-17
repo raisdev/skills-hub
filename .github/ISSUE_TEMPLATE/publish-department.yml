@@ -1,0 +1,30 @@
+name: Publish our unit's plugins
+description: Your department wants to maintain its own plugins in this hub.
+title: "[Unit] "
+labels: ["unit-onboarding"]
+body:
+  - type: input
+    id: unit
+    attributes:
+      label: Unit
+      placeholder: ORIA
+    validations:
+      required: true
+  - type: input
+    id: prefix
+    attributes:
+      label: Plugin name prefix you want
+      placeholder: oria
+    validations:
+      required: true
+  - type: textarea
+    id: reviewers
+    attributes:
+      label: Who reviews changes for your unit
+      description: GitHub usernames of one to three people. They will be added to a team named <prefix>-reviewers and to CODEOWNERS for your folders.
+    validations:
+      required: true
+  - type: textarea
+    id: plugins
+    attributes:
+      label: What you plan to publish first
