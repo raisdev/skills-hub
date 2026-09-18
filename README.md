@@ -39,11 +39,33 @@ plugins/<name>/                   one plugin per folder; skills live inside plug
   skills/<skill>/SKILL.md         one folder per skill
   .mcp.json                       optional MCP connectors
 incubator/<name>/                 same layout, not yet listed, shown as in development
+submodules/<name>/                external plugin repos (git submodules), merged into the catalog
 site/                             catalog page builder (GitHub Pages)
 scripts/validate.py               checks every PR: manifests, names, secrets, size
+scripts/merge_submodule_plugins.py  merges a submodule's marketplace into the root
 ```
 
 Plugin names carry their owner as a prefix, for example `rais-ecfr`, `osp-agreements`, `oria-protocols`, so ownership is obvious in the app and in CODEOWNERS.
+
+### Merging submodule plugins
+
+When you add or update a submodule that has its own `.claude-plugin/marketplace.json`, merge its plugins into the root catalog:
+
+```bash
+python3 scripts/merge_submodule_plugins.py submodules/<submodule-name>
+```
+
+The script adjusts local source paths. A submodule plugin that has the same name as an existing root plugin overwrites it.
+
+### Validating the hub
+
+Run the validator before pushing — it runs on every pull request and push, so catching problems locally saves a failed build:
+
+```bash
+python3 scripts/validate.py
+```
+
+It fails (exit 1) when the marketplace is missing, invalid, or named wrong; a listed plugin folder is missing or its `plugin.json` name differs from the folder; a plugin (published or incubator) lacks `plugin.json`, `README.md`, or a skill with front matter; a `SKILL.md` lacks `name`/`description`; a file looks like a secret or is over the per-file limit; or a plugin is over the total size limit. It only warns when a folder under `plugins/` is not listed in the marketplace.
 
 ## How machines get it
 
