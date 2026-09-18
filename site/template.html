@@ -138,12 +138,12 @@ function card(p){
   const conns = (p.connectors||[]).length ? `<div class="meta">Connectors: ${p.connectors.map(esc).join(", ")}</div>` : "";
   const tags = (p.tags||[]).map(esc).join(" ");
   return `<article class="card plugin" data-search="${esc([p.name,p.owner,p.description,tags,(p.skills||[]).map(s=>s.name+" "+s.description).join(" ")].join(" ").toLowerCase())}">
-    <div class="top"><h3>${esc(p.name)}</h3><span class="badge ${dev?"dev":"ok"}">${dev?"in development":"v"+esc(p.version)}</span></div>
+    <div class="top"><h3>${esc(p.name)}</h3><span class="badge ${dev?"dev":"ok"}">${dev?"in development":(p.version?"v"+esc(p.version):"external")}</span></div>
     <div class="meta">${esc(p.owner||"")}</div>
     <p class="desc">${esc(p.description)}</p>
     ${conns}
     ${skills ? `<details><summary>${p.skills.length} skill${p.skills.length===1?"":"s"}</summary><ul class="skills">${skills}</ul></details>` : ""}
-    <div class="links"><a href="${esc(p.readme)}">Read more</a><a href="${GH}/tree/main/${esc(p.path)}">Source</a></div>
+    <div class="links"><a href="${esc(p.readme)}">Read more</a>${p.path?`<a href="${GH}/tree/main/${esc(p.path)}">Source</a>`:""}</div>
   </article>`;
 }
 if (CATALOG){

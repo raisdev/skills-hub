@@ -65,15 +65,40 @@ def plugin_record(folder, status):
         "readme": f"https://github.com/{REPO}/blob/main/{rel}/README.md",
     }
 
+def remote_record(entry):
+    """A plugin hosted in someone else's repo: the manifest entry is all we have."""
+    src = entry.get("source") or {}
+    url = src.get("url", "") if isinstance(src, dict) else str(src)
+    author = entry.get("author")
+    if isinstance(author, dict): author = author.get("name", "")
+    desc = entry.get("description", "")
+    return {
+        "name": entry.get("displayName") or entry.get("name", ""),
+        "version": "",                       # lives in the upstream repo, not here
+        "description": desc,
+        "summary": desc,
+        "owner": author or url.replace("https://github.com/", "").removesuffix(".git"),
+        "status": "published",
+        "skills": [],                        # not checked out; nothing to enumerate
+        "connectors": [],
+        "path": "",                          # no local source tree to link
+        "readme": entry.get("homepage") or url,
+    }
+
 def build():
     cat = json.loads((ROOT / ".claude-plugin" / "marketplace.json").read_text(encoding="utf-8"))
     published = []
     for p in cat.get("plugins", []):
-        folder = ROOT / p["source"][2:]
-        if folder.is_dir():
+        src = p.get("source")
+        if isinstance(src, str) and src.startswith("./"):
+            folder = ROOT / src[2:]
+            if not folder.is_dir():
+                continue
             rec = plugin_record(folder, "published")
-            rec["tags"] = p.get("tags", []); rec["category"] = p.get("category", "")
-            published.append(rec)
+        else:
+            rec = remote_record(p)
+        rec["tags"] = p.get("tags", []); rec["category"] = p.get("category", "")
+        published.append(rec)
     incubating = []
     inc = ROOT / "incubator"
     if inc.exists():
