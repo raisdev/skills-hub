@@ -1,0 +1,10 @@
+{
+  "repositories": [
+    {
+      "name": "anthropic-knowledge-work-plugins",
+      "remote": "https://github.com/raisdev/anthropic-knowledge-work-plugins.git",
+      "branch": "main",
+      "path": "submodules/anthropic-work-plugins"
+    }
+  ]
+}
