@@ -1,0 +1,3 @@
+[submodule "submodules/anthropic-work-plugins"]
+	path = submodules/anthropic-work-plugins
+	url = https://github.com/raisdev/anthropic-knowledge-work-plugins.git
