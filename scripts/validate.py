@@ -3,12 +3,14 @@
 
 Fails the build when:
   - .claude-plugin/marketplace.json is missing, invalid, or has the wrong name
-  - a listed plugin folder is missing, or its plugin.json name differs from the folder
+  - a listed plugin folder (./plugins/... or ./submodules/...) is missing, or plugin.json name differs from the folder
   - a plugin (published or incubator) lacks plugin.json, README.md, or a SKILL.md with front matter
   - a SKILL.md front matter lacks name or description
   - a file looks like a secret (API keys, private keys) or is larger than MAX_FILE_BYTES
   - a plugin is larger than MAX_PLUGIN_BYTES
 Warns (does not fail) when a plugin folder exists under plugins/ but is not listed.
+Remote plugin sources (objects with source/url) and submodule paths are skipped;
+only local ./plugins/ paths and incubator/ get full checks.
 """
 import json, os, re, sys, pathlib
 
@@ -107,15 +109,20 @@ def main():
     listed = {}
     for p in cat.get("plugins", []):
         src = p.get("source", "")
-        if not isinstance(src, str) or not src.startswith("./plugins/"):
-            err(f"marketplace.json: plugin '{p.get('name')}' source must be a relative ./plugins/<name> path"); continue
+        name = p.get("name")
+        if isinstance(src, dict):
+            continue
+        if not isinstance(src, str) or not src.startswith("./"):
+            err(f"marketplace.json: plugin '{name}' has invalid source (must be ./<path> or a remote object)"); continue
         folder = ROOT / src[2:]
         if not folder.is_dir():
-            err(f"marketplace.json: plugin '{p.get('name')}' points at missing folder {src}"); continue
-        listed[folder.name] = p.get("name")
-        if p.get("name") != folder.name:
-            err(f"marketplace.json: plugin '{p.get('name')}' should be named after its folder '{folder.name}'")
-        check_plugin(folder, p.get("name"))
+            err(f"marketplace.json: plugin '{name}' points at missing folder {src}"); continue
+        listed[folder.name] = name
+        if src.startswith("./submodules/"):
+            continue
+        if name != folder.name:
+            err(f"marketplace.json: plugin '{name}' should be named after its folder '{folder.name}'")
+        check_plugin(folder, name)
     plugins_dir = ROOT / "plugins"
     for folder in sorted(plugins_dir.iterdir()) if plugins_dir.exists() else []:
         if folder.is_dir() and not folder.name.startswith("_") and folder.name not in listed:
