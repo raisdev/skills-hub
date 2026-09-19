@@ -1,0 +1,24 @@
+{
+  "name": "small-business",
+  "displayName": "Small Business",
+  "version": "1.35.1",
+  "description": "Pre-built small business workflows to help you run and grow your business. Supports a majority of the tools you already use. You approve every step that touches money or customers. Install and then ask Claude to help you get onboarded.",
+  "author": {
+    "name": "Anthropic"
+  },
+  "keywords": [
+    "all-in-one",
+    "automation",
+    "finance",
+    "growth",
+    "hr",
+    "marketing",
+    "operations",
+    "sales",
+    "small-business",
+    "smb",
+    "taxes",
+    "workflow",
+    "zapier"
+  ]
+}

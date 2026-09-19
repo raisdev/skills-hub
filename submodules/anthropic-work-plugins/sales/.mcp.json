@@ -1,0 +1,100 @@
+{
+  "mcpServers": {
+    "slack": {
+      "type": "http",
+      "url": "https://mcp.slack.com/mcp",
+      "oauth": {
+        "clientId": "1601185624273.8899143856786",
+        "callbackPort": 3118
+      }
+    },
+    "hubspot": {
+      "type": "http",
+      "url": "https://mcp.hubspot.com/anthropic"
+    },
+    "salesforce": {
+      "type": "http",
+      "url": "https://api.salesforce.com/platform/mcp/v1/platform/headless-360"
+    },
+    "close": {
+      "type": "http",
+      "url": "https://mcp.close.com/mcp"
+    },
+    "monday": {
+      "type": "http",
+      "url": "https://mcp.monday.com/mcp"
+    },
+    "clay": {
+      "type": "http",
+      "url": "https://api.clay.com/v3/mcp"
+    },
+    "zoominfo": {
+      "type": "http",
+      "url": "https://mcp.zoominfo.com/mcp"
+    },
+    "notion": {
+      "type": "http",
+      "url": "https://mcp.notion.com/mcp"
+    },
+    "atlassian": {
+      "type": "http",
+      "url": "https://mcp.atlassian.com/v1/mcp"
+    },
+    "fireflies": {
+      "type": "http",
+      "url": "https://api.fireflies.ai/mcp"
+    },
+    "apollo": {
+      "type": "http",
+      "url": "https://mcp.apollo.io/mcp"
+    },
+    "outreach": {
+      "type": "http",
+      "url": "https://api.outreach.io/mcp/"
+    },
+    "google calendar": {
+      "type": "http",
+      "url": ""
+    },
+    "gmail": {
+      "type": "http",
+      "url": ""
+    },
+    "microsoft-365": {
+      "type": "http",
+      "url": "https://microsoft365.mcp.claude.com/mcp"
+    },
+    "similarweb": {
+      "type": "http",
+      "url": "https://mcp.similarweb.com/mcp"
+    },
+    "google drive": {
+      "type": "http",
+      "url": ""
+    },
+    "gong": {
+      "type": "http",
+      "url": "https://mcp.gong.io/mcp"
+    },
+    "zoom": {
+      "type": "http",
+      "url": "https://mcp.zoom.us/mcp/zoom/streamable"
+    },
+    "otter-ai": {
+      "type": "http",
+      "url": "https://mcp.otter.ai/mcp"
+    },
+    "calendly": {
+      "type": "http",
+      "url": "https://mcp.calendly.com/"
+    },
+    "lusha": {
+      "type": "http",
+      "url": "https://mcp.lusha.com/mcp/claude"
+    },
+    "crunchbase": {
+      "type": "http",
+      "url": "https://mcp.crunchbase.com/"
+    }
+  }
+}

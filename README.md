@@ -39,13 +39,24 @@ plugins/<name>/                   one plugin per folder; skills live inside plug
   skills/<skill>/SKILL.md         one folder per skill
   .mcp.json                       optional MCP connectors
 incubator/<name>/                 same layout, not yet listed, shown as in development
-submodules/<name>/                external plugin repos (git submodules), merged into the catalog
+submodules/<name>/                vendored external plugin repos, checked in directly, merged into the catalog
 site/                             catalog page builder (GitHub Pages)
 scripts/validate.py               checks every PR: manifests, names, secrets, size
 scripts/merge_submodule_plugins.py  merges a submodule's marketplace into the root
+scripts/vendor_subtree.py         pulls a forked repo into submodules/ as a git subtree
 ```
 
 Plugin names carry their owner as a prefix, for example `rais-ecfr`, `osp-agreements`, `oria-protocols`, so ownership is obvious in the app and in CODEOWNERS.
+
+### Vendoring external plugin repos
+
+External repos (currently a fork of the Anthropic knowledge-work plugin marketplace) are checked in directly under `submodules/` so Claude Desktop loads them without any extra clone commands. To add or update them:
+
+```bash
+python3 scripts/vendor_subtree.py
+```
+
+First run vendors the repo with `git subtree add`; later runs pull the latest with `git subtree pull` and merge any local changes, so this repo's history stays flat.
 
 ### Merging submodule plugins
 
