@@ -5,6 +5,12 @@
       "remote": "https://github.com/raisdev/anthropic-knowledge-work-plugins.git",
       "branch": "main",
       "path": "submodules/anthropic-work-plugins"
+    },
+    {
+      "name": "anthropics-skills",
+      "remote": "https://github.com/raisdev/anthropics-skills.git",
+      "branch": "main",
+      "path": "submodules/anthropics-skills"
     }
   ]
 }
