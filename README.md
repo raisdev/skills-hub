@@ -1,8 +1,8 @@
 # Cornell Research & Innovation Skills Hub
 
-Plugins and skills for Claude Desktop, published by RAIS and the units of Research & Innovation. Anything merged to `main` reaches every Cornell gateway machine on its own; there is no install step for RAIS and no visit from a tech.
+Plugins and skills for Claude Desktop, published by RAIS and the units of Research & Innovation.
 
-**Catalog and requests:** <https://raisdev.github.io/skills-hub> (built from this repo on every push)
+**Catalog and requests:** <https://raisdev.github.io/skills-hub> (built from this repo on every push to `main` branch)
 
 ## Using a plugin
 
