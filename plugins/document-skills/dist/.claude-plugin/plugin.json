@@ -1,0 +1,9 @@
+{
+  "$schema": "https://code.claude.com/schemas/plugin.json",
+  "name": "document-skills",
+  "version": "0.1.0",
+  "description": "Document processing skills for Excel, Word, PowerPoint, and PDF files: create, edit, and inspect spreadsheets, documents, presentations, and PDFs from Claude.",
+  "author": {
+    "name": "Cornell RAIS"
+  }
+}

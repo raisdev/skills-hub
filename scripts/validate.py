@@ -3,7 +3,10 @@
 
 Fails the build when:
   - .claude-plugin/marketplace.json is missing, invalid, or has the wrong name
-  - a listed plugin folder (./plugins/... or ./submodules/...) is missing, or plugin.json name differs from the folder
+  - a listed plugin folder is missing
+  - a plugin shipped from a direct child of plugins/ (or placed under
+    incubator/) is not named after its folder
+  - a listed plugin's manifest name differs from its marketplace.json name
   - a plugin (published or incubator) lacks plugin.json, README.md, or a SKILL.md with front matter
   - a SKILL.md front matter lacks name or description
   - a file looks like a secret (API keys, private keys) or is larger than MAX_FILE_BYTES
@@ -11,6 +14,8 @@ Fails the build when:
 Warns (does not fail) when a plugin folder exists under plugins/ but is not listed.
 Remote plugin sources (objects with source/url) and submodule paths are skipped;
 only local ./plugins/ paths and incubator/ get full checks.
+Name/folder checks apply only to direct children of plugins/ and incubator/, so a
+nested plugin root (plugins/<name>/dist/) may use a different folder name.
 """
 import json, os, re, sys, pathlib
 
@@ -63,7 +68,7 @@ def check_plugin(folder, listed_name=None):
     name = meta.get("name", "")
     if not NAME_RE.match(name):
         err(f"{rel}: plugin.json name '{name}' must be lowercase letters, digits and hyphens")
-    if name != folder.name:
+    if folder.parent in (ROOT / "plugins", ROOT / "incubator") and name != folder.name:
         err(f"{rel}: plugin.json name '{name}' does not match folder name '{folder.name}'")
     if listed_name and name != listed_name:
         err(f"{rel}: marketplace.json lists it as '{listed_name}' but plugin.json says '{name}'")
@@ -106,7 +111,7 @@ def main():
     if cat is None: report(); return
     if cat.get("name") != EXPECTED_NAME:
         err(f"marketplace.json name is '{cat.get('name')}', machines expect '{EXPECTED_NAME}'")
-    listed = {}
+    listed_top = set()
     for p in cat.get("plugins", []):
         src = p.get("source", "")
         name = p.get("name")
@@ -117,15 +122,16 @@ def main():
         folder = ROOT / src[2:]
         if not folder.is_dir():
             err(f"marketplace.json: plugin '{name}' points at missing folder {src}"); continue
-        listed[folder.name] = name
+        if src.startswith("./plugins/"):
+            listed_top.add(src[2:].split("/")[1])
         if src.startswith("./submodules/"):
             continue
-        if name != folder.name:
+        if folder.parent == ROOT / "plugins" and name != folder.name:
             err(f"marketplace.json: plugin '{name}' should be named after its folder '{folder.name}'")
         check_plugin(folder, name)
     plugins_dir = ROOT / "plugins"
     for folder in sorted(plugins_dir.iterdir()) if plugins_dir.exists() else []:
-        if folder.is_dir() and not folder.name.startswith("_") and folder.name not in listed:
+        if folder.is_dir() and not folder.name.startswith("_") and folder.name not in listed_top:
             warn(f"plugins/{folder.name} exists but is not listed in marketplace.json (it will not ship)")
     inc = ROOT / "incubator"
     for folder in sorted(inc.iterdir()) if inc.exists() else []:
