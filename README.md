@@ -2,7 +2,7 @@
 
 Plugins and skills for Claude Desktop, published by RAIS and the units of Research & Innovation. Anything merged to `main` reaches every Cornell gateway machine on its own; there is no install step for RAIS and no visit from a tech.
 
-**Catalog and requests:** https://raisdev.github.io/skills-hub (built from this repo on every push)
+**Catalog and requests:** <https://raisdev.github.io/skills-hub> (built from this repo on every push)
 
 ## Using a plugin
 
@@ -82,4 +82,4 @@ It fails (exit 1) when the marketplace is missing, invalid, or named wrong; a li
 
 Cornell gateway installs of Claude Desktop carry a managed policy value, `allowedPluginMarketplaces`, that names this repository on branch `main`. Claude Desktop clones it with git at launch and re-fetches periodically. Because the entry is `available` rather than auto-install, users choose what to install, and because it follows `main`, a merged pull request is live everywhere within a day. That is also why `main` is protected and every change gets a review.
 
-Maintained by Cornell RAIS. Questions to rais@cornell.edu.
+Maintained by Cornell RAIS. Questions to <rais@cornell.edu>.
