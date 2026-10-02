@@ -1,0 +1,10 @@
+{
+  "$schema": "https://code.claude.com/schemas/plugin.json",
+  "name": "rais-cornell-branding",
+  "version": "0.1.0",
+  "description": "Keeps web pages, code, slides, charts and copy consistent with the Cornell brand guidelines (brand.cornell.edu): colors, type, logos, naming, media and licensing. One skill backed by a small knowledge base built from the brand site, with rule IDs and sources on every answer.",
+  "author": {
+    "name": "Cornell RAIS"
+  },
+  "homepage": "https://brand.cornell.edu/"
+}

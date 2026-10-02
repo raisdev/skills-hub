@@ -39,6 +39,23 @@
         "pdf"
       ],
       "source": "./plugins/document-skills/dist"
+    },
+    {
+      "name": "rais-cornell-branding",
+      "source": "./plugins/rais-cornell-branding",
+      "description": "Keeps web pages, code, slides, charts and copy consistent with the Cornell brand guidelines (brand.cornell.edu): colors, type, logos, naming, media and licensing, with a rule ID and source on every answer.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Cornell RAIS"
+      },
+      "category": "branding",
+      "tags": [
+        "cornell",
+        "brand",
+        "design",
+        "accessibility",
+        "rais"
+      ]
     }
   ]
 }
