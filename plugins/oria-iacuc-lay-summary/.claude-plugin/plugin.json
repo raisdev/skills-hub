@@ -1,0 +1,10 @@
+{
+  "$schema": "https://code.claude.com/schemas/plugin.json",
+  "name": "oria-iacuc-lay-summary",
+  "version": "0.1.0",
+  "description": "Helps Cornell PIs write or improve the lay summary of an IACUC animal use protocol: drafts from pasted source material, trims long summaries, and keeps track of details that belong in other protocol sections.",
+  "author": {
+    "name": "Cornell ORIA"
+  },
+  "homepage": "https://github.com/raisdev/skills-hub"
+}
