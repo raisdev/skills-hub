@@ -1,0 +1,8 @@
+{
+  "name": "oria-rass-forms",
+  "version": "0.1.0",
+  "description": "Fills ORIA forms, starting with the Grant-IACUC Protocol Comparison Checklist, from a RASS record PDF and returns a finished PDF.",
+  "author": {
+    "name": "Cornell ORIA"
+  }
+}

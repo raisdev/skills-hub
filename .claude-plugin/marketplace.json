@@ -56,6 +56,23 @@
         "lay-summary",
         "oria"
       ]
+    },
+    {
+      "name": "oria-rass-forms",
+      "source": "./plugins/oria-rass-forms",
+      "description": "Fills ORIA forms, starting with the Grant-IACUC Protocol Comparison Checklist, from a RASS record PDF and returns a finished PDF.",
+      "version": "0.1.0",
+      "author": {
+        "name": "Cornell ORIA"
+      },
+      "category": "research-compliance",
+      "tags": [
+        "iacuc",
+        "rass",
+        "congruence",
+        "forms",
+        "oria"
+      ]
     }
   ]
 }
