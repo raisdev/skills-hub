@@ -1,0 +1,29 @@
+{
+  "_about": "Registry of forms that can be filled from RASS record PDFs. Add one entry per form. See USER-GUIDE.md (Part 2). A forms.json in the user's data folder overrides this one.",
+  "_optional_sections_example": [
+    {
+      "section": "Subawards",
+      "marker": "Subawards",
+      "when": "Only if the grant has subawards (e.g., animal work done at another institution)"
+    }
+  ],
+  "forms": [
+    {
+      "id": "congruence",
+      "name": "Grant-IACUC Protocol Comparison Checklist (congruence form)",
+      "aliases": ["congruence", "congruency", "comparison checklist", "OSP to IACUC", "grant protocol comparison"],
+      "template": "OSP to IACUC Template GCC.dotx",
+      "rass_sections": [
+        "OSP # line (the page header: \"Sponsored Research Protocol Application #..., PI: ...\")",
+        "Award Details",
+        "Compliances"
+      ],
+      "section_markers": ["Sponsored Research Protocol Application #", "Award Details", "Compliances"],
+      "optional_sections": [],
+      "extract_script": "extract_rass.py",
+      "fill_script": "fill_checklist.py",
+      "data_file": "rass_extracted.json",
+      "output_dir": "Checklists"
+    }
+  ]
+}
