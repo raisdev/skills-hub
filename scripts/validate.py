@@ -137,7 +137,7 @@ def main():
     for folder in sorted(inc.iterdir()) if inc.exists() else []:
         if folder.is_dir():
             check_plugin(folder)
-            if folder.name in listed:
+            if folder.name in listed_top:
                 err(f"incubator/{folder.name} is also listed in marketplace.json; pick one")
     report()
 

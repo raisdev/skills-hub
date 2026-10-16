@@ -1,0 +1,19 @@
+{
+  "$schema": "https://code.claude.com/schemas/plugin.json",
+  "name": "rais-kb",
+  "displayName": "Knowledge Base",
+  "version": "0.10.0",
+  "description": "Turns a folder of your documents into a knowledge base Claude can answer questions from and, for contract review, a playbook the Legal plugin follows. Your documents stay in your folder, which can be shared through SharePoint.",
+  "author": {
+    "name": "Cornell RAIS"
+  },
+  "homepage": "https://github.com/raisdev/skills-hub",
+  "keywords": [
+    "knowledge base",
+    "playbook",
+    "documents",
+    "legal",
+    "osp",
+    "rais"
+  ]
+}
