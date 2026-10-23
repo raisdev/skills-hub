@@ -73,6 +73,23 @@
         "forms",
         "oria"
       ]
+    },
+    {
+      "name": "rais-kb",
+      "source": "./plugins/rais-kb",
+      "description": "Turns a folder of your documents into a knowledge base Claude can answer questions from and, for contract review, a playbook the Legal plugin follows. Your documents stay in your folder, which can be shared through SharePoint.",
+      "version": "0.10.0",
+      "author": {
+        "name": "Cornell RAIS"
+      },
+      "category": "research-administration",
+      "tags": [
+        "knowledge-base",
+        "playbook",
+        "documents",
+        "contract-review",
+        "rais"
+      ]
     }
   ]
 }
